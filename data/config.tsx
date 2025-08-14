@@ -10,24 +10,24 @@ const siteConfig = {
   logo: Logo,
   seo: {
     title: <Em>Parker Thornton</Em>,
-    description: 'The React component library for startups',
+    description: 'Backend Developer, and Automotive Photographer',
   } as NextSeoProps,
   termsUrl: '#',
   privacyUrl: '#',
   header: {
     links: [
-      {
-        id: 'features',
-        label: 'Features',
-      },
-      {
-        id: 'pricing',
-        label: 'Pricing',
-      },
-      {
-        id: 'faq',
-        label: 'FAQ',
-      },
+      // {
+      //   id: 'features',
+      //   label: 'Features',
+      // },
+      // {
+      //   id: 'pricing',
+      //   label: 'Pricing',
+      // },
+      // {
+      //   id: 'faq',
+      //   label: 'FAQ',
+      // },
       {
         label: 'Contact Me',
         href: '/contact',
@@ -42,9 +42,9 @@ const siteConfig = {
   footer: {
     copyright: (
       <>
+        Modified By Parker Thornton<br />
         Template Built by{' '}
-        <Link href="https://twitter.com/Pagebakers">Eelco Wiersma</Link><br />
-        Modified By Parker Thornton
+        <Link href="https://twitter.com/Pagebakers">Eelco Wiersma</Link>
       </>
     ),
     links: [

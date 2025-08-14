@@ -1,51 +1,52 @@
 import {
-  Avatar,
   Card,
   CardBody,
   CardHeader,
-  CardProps,
   Heading,
+  Image,
   Stack,
   Text,
+  CardProps,
 } from "@chakra-ui/react";
-import { Link } from "@saas-ui/react";
-import { FaTwitter } from "react-icons/fa";
 
 export interface HobbyProps extends CardProps {
-  name: string;
-  description: React.ReactNode;
-  avatar: string;
-  href?: string;
+  title: string;
+  description: string;
+  image?: string;
   children?: React.ReactNode;
 }
 
 export const Hobby = ({
-  name,
+  title,
   description,
-  avatar,
-  href,
+  image,
   children,
   ...rest
 }: HobbyProps) => {
   return (
-    <Card position="relative" {...rest}>
-      <CardHeader display="flex" flexDirection="row" alignItems="center">
-        <Avatar name={name} src={avatar} size="sm" bg="transparent" />
-        <Stack spacing="1" ms="4">
-          <Heading size="sm">{name}</Heading>
-          <Text color="muted" size="xs">
-            {description}
-          </Text>
-        </Stack>
+    <Card
+      {...rest}
+      borderRadius="lg"
+      overflow="hidden"
+      boxShadow="md"
+      _hover={{ boxShadow: "xl", transform: "translateY(-4px)" }}
+      transition="all 0.2s ease-in-out"
+    >
+      {image && (
+        <Image
+          src={image}
+          alt={title}
+          objectFit="cover"
+          maxH="180px"
+          w="100%"
+        />
+      )}
+      <CardHeader pb={0}>
+        <Heading size="md">{title}</Heading>
       </CardHeader>
       <CardBody>
-        {children}
-
-        {href && (
-          <Link href={href} position="absolute" top="4" right="4">
-            <FaTwitter />
-          </Link>
-        )}
+        <Text color="gray.600">{description}</Text>
+        {children && <Stack mt={4}>{children}</Stack>}
       </CardBody>
     </Card>
   );

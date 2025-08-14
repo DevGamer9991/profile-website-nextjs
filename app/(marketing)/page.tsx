@@ -36,6 +36,9 @@ import {
   FiToggleLeft,
   FiTrendingUp,
   FiUserPlus,
+  FiTruck,
+  FiServer,
+  FiCamera,
 } from 'react-icons/fi'
 
 import * as React from 'react'
@@ -73,11 +76,11 @@ const Home: NextPage = () => {
 
       <FeaturesSection />
 
-      <HobbiesSection />
+      {/* <HobbySection /> */}
 
-      <PricingSection />
+      {/* <PricingSection /> */}
 
-      <FaqSection />
+      {/* <FaqSection /> */}
     </Box>
   )
 }
@@ -164,40 +167,37 @@ const HeroSection: React.FC = () => {
       </Container>
 
       <Features
-        id="benefits"
+        id="hobbies"
         columns={[1, 2, 4]}
         iconSize={4}
         innerWidth="container.xl"
         pt="20"
         features={[
           {
-            title: 'Accessible',
-            icon: FiSmile,
-            description: 'All components strictly follow WAI ARIA standards.',
+            title: 'Car Enthusiast',
+            icon: FiTruck,
+            description: 'Passionate about high-performance cars, tuning, and track driving.',
             iconPosition: 'left',
             delay: 0.6,
           },
           {
-            title: 'Themable',
-            icon: FiSliders,
-            description:
-              'Fully customize all components to your brand with theme support and style props.',
+            title: 'Server Hosting',
+            icon: FiServer,
+            description: 'Runs and maintains custom game servers with optimized performance.',
             iconPosition: 'left',
             delay: 0.8,
           },
           {
-            title: 'Composable',
-            icon: FiGrid,
-            description:
-              'Compose components to fit your needs and mix them together to create new ones.',
+            title: 'Photography',
+            icon: FiCamera,
+            description: 'Enjoys capturing cars, landscapes, and cityscapes with creative angles.',
             iconPosition: 'left',
             delay: 1,
           },
           {
-            title: 'Productive',
-            icon: FiThumbsUp,
-            description:
-              'Designed to reduce boilerplate and fully typed, build your product at speed.',
+            title: 'CTF Challenges',
+            icon: FiLock,
+            description: 'Regularly participates in cybersecurity Capture the Flag competitions.',
             iconPosition: 'left',
             delay: 1.1,
           },
@@ -232,7 +232,7 @@ const HighlightsSection = () => {
         </Text>
       </HighlightsItem>
 
-      <HighlightsHobbyItem
+      {/* <HighlightsHobbyItem
         name="Colleague Feedback"
         description="From a recent project lead"
         avatar="/static/images/avatar.jpg"
@@ -241,7 +241,20 @@ const HighlightsSection = () => {
         “Parker’s ability to connect backend code with network architecture
         saved us weeks in development. His solutions are fast, secure, and
         adaptable to change.”
-      </HighlightsHobbyItem>
+      </HighlightsHobbyItem> */}
+
+      <HighlightsItem
+        title="Hands on Networking"
+        style={{
+          background: 'radial-gradient(circle at 10% 10%, #0000ff3d 0%, #80008042 80%)',
+        }}
+      >
+        <Text color="muted" fontSize="lg">
+          With a background in networking, I design systems that are not only
+          performant but also resilient. I understand how to optimize data flow,
+          reduce latency, and ensure secure communication between services.
+        </Text>
+      </HighlightsItem>
 
       <HighlightsItem colSpan={[1, null, 2]} title="Always Building, Always Learning">
         <Text color="muted" fontSize="lg">
@@ -411,48 +424,28 @@ const FeaturesSection = () => {
   )
 }
 
-const AutomotiveSection = () => {
-  const automotiveItems = [
-    {
-      title: 'Passion for Cars',
-      description:
-        'Whether it’s classic muscle or modern performance, I enjoy learning about automotive design, engineering, and culture.',
-      image: '/static/images/automotive/cars1.jpg',
-    },
-    {
-      title: 'Automotive Photography',
-      description:
-        'Capturing the details, lines, and motion of vehicles is one of my favorite creative outlets. I focus on both static shots and action photography.',
-      image: '/static/images/automotive/photography1.jpg',
-    },
-    {
-      title: 'Track Days & Meets',
-      description:
-        'I often attend car meets and track events — not just to admire the builds, but to connect with other enthusiasts and document the experience.',
-      image: '/static/images/automotive/events1.jpg',
-    },
-  ]
-
-  return (
-    <Hobbies
-      title="Cars & Automotive Photography"
-      columns={[1, 2, 3]}
-      innerWidth="container.xl"
-    >
-      <>
-        {automotiveItems.map((item, i) => (
-          <Stack key={i} spacing="8">
-            <Hobbies
-              name={item.title}
-              description={item.description}
-              avatar={item.image}
-            />
-          </Stack>
-        ))}
-      </>
-    </Hobbies>
-  )
-}
+// const HobbySection = () => {
+//   return (
+//     <Hobbies
+//       title={hobbies.title}
+//       columns={[1, 2, 3]}
+//       innerWidth="container.xl"
+//     >
+//       <>
+//         {hobbies.items.map((item, i) => (
+//           <Stack key={i} spacing="8">
+//             <Hobby
+//               name={item.name}
+//               description={item.description}
+//               avatar={item.avatar}
+//               children={item.children}
+//             />
+//           </Stack>
+//         ))}
+//       </>
+//     </Hobbies>
+//   )
+// }
 
 const PricingSection = () => {
   return (

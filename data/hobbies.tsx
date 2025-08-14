@@ -1,40 +1,39 @@
 export default {
-  title: 'Loved by tech people',
+  title: 'Beyond the Keyboard',
   items: [
     {
-      name: 'Eelco Wiersma',
-      description: 'Founder Saas UI',
-      avatar:
-        'https://pbs.twimg.com/profile_images/1470742164024008706/k-eXHtu0_normal.jpg',
+      name: 'Passion for Cars',
+      description: 'Automotive Enthusiast',
+      avatar: '/static/images/automotive/cars1.jpg',
       children: (
         <>
-          “With SaaS UI I am able to produce high quality dashboard apps and
-          internal tools without a lot of design skills. The ROI really is
-          amazing.”
+          “From classic muscle cars to cutting-edge performance builds,
+          I’m fascinated by the engineering, design, and culture of the
+          automotive world.”
         </>
       ),
     },
     {
-      name: 'Caroline Yahaya',
-      description: 'Fullstack Developer',
-      avatar: '/static/images/avatar2.jpg',
+      name: 'Automotive Photography',
+      description: 'Creative Outlet',
+      avatar: '/static/images/automotive/photography1.jpg',
       children: (
         <>
-          “Saas UI allows me to build beautiful and functional UI super fast.
-          The components are very well thought out and the Next.js starter kit
-          saved me at least 100 hours of work.”
+          “Capturing the lines, details, and raw motion of vehicles
+          combines my love of technology with a creative eye behind
+          the lens.”
         </>
       ),
     },
     {
-      name: 'Alberto Vazquez',
-      description: 'Frontend Engineer',
-      avatar: '/static/images/avatar3.jpg',
+      name: 'Track Days & Meets',
+      description: 'Community & Experience',
+      avatar: '/static/images/automotive/events1.jpg',
       children: (
         <>
-          “Saas UI gave us a perfect starting point for our project, having the
-          storybooks already set up with beautifully crafted components and
-          fully mocked pages was a treat.”
+          “I attend car meets and track events to connect with other
+          enthusiasts, experience incredible machines, and document
+          the stories they tell.”
         </>
       ),
     },
