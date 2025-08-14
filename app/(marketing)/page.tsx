@@ -48,16 +48,16 @@ import { Hero } from '#components/hero'
 import {
   Highlights,
   HighlightsItem,
-  HighlightsTestimonialItem,
+  HighlightsHobbyItem,
 } from '#components/highlights'
 import { ChakraLogo, NextjsLogo } from '#components/logos'
 import { FallInPlace } from '#components/motion/fall-in-place'
 import { Pricing } from '#components/pricing/pricing'
-import { Testimonial, Testimonials } from '#components/testimonials'
+import { Hobby, Hobbies } from '#components/hobbies'
 import { Em } from '#components/typography'
 import faq from '#data/faq'
 import pricing from '#data/pricing'
-import testimonials from '#data/testimonials'
+import hobbies from '#data/hobbies'
 
 export const meta: Metadata = {
   title: 'Saas UI Landingspage',
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
 
       <FeaturesSection />
 
-      <TestimonialsSection />
+      <HobbiesSection />
 
       <PricingSection />
 
@@ -100,7 +100,10 @@ const HeroSection: React.FC = () => {
             }
             description={
               <FallInPlace delay={0.4} fontWeight="medium">
-                I'm a backend <Em>API</Em> developer with a strong interest in networking and systems architecture. I hold a <Em>CompTIA Network+</Em> certification and enjoy exploring network technologies in my free time.
+                Backend developer and systems architect with a passion for building
+                high performance infrastructure. I blend strong programming skills
+                with hands on networking experience, from server administration to
+                API development, to deliver robust and scalable solutions.
               </FallInPlace>
             }
           >
@@ -170,7 +173,7 @@ const HeroSection: React.FC = () => {
           {
             title: 'Accessible',
             icon: FiSmile,
-            description: 'All components strictly follow WAI-ARIA standards.',
+            description: 'All components strictly follow WAI ARIA standards.',
             iconPosition: 'left',
             delay: 0.6,
           },
@@ -210,90 +213,53 @@ const HighlightsSection = () => {
 
   return (
     <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Core components">
+      <HighlightsItem colSpan={[1, null, 2]} title="Technical Breadth">
         <VStack alignItems="flex-start" spacing="8">
           <Text color="muted" fontSize="xl">
-            Get started for free with <Em>30+ open source components</Em>.
-            Including authentication screens with Clerk, Supabase and Magic.
-            Fully functional forms with React Hook Form. Data tables with React
-            Table.
+            Over a decade of programming experience across multiple languages,
+            combined with deep knowledge in backend systems, API design, and
+            networking infrastructure. I’m comfortable working across the stack
+            to connect systems, optimize performance, and ensure reliability.
           </Text>
-
-          <Flex
-            rounded="full"
-            borderWidth="1px"
-            flexDirection="row"
-            alignItems="center"
-            py="1"
-            ps="8"
-            pe="2"
-            bg="primary.900"
-            _dark={{ bg: 'gray.900' }}
-          >
-            <Box>
-              <Text color="yellow.400" display="inline">
-                yarn add
-              </Text>{' '}
-              <Text color="cyan.300" display="inline">
-                @saas-ui/react
-              </Text>
-            </Box>
-            <IconButton
-              icon={hasCopied ? <FiCheck /> : <FiCopy />}
-              aria-label="Copy install command"
-              onClick={onCopy}
-              variant="ghost"
-              ms="4"
-              isRound
-              color="white"
-            />
-          </Flex>
         </VStack>
       </HighlightsItem>
-      <HighlightsItem title="Solid foundations">
+
+      <HighlightsItem title="Real World Server Experience">
         <Text color="muted" fontSize="lg">
-          We don&apos;t like to re-invent the wheel, neither should you. We
-          selected the most productive and established tools in the scene and
-          build Saas UI on top of it.
+          Managing personal and community servers taught me how to configure,
+          secure, and maintain complex environments, from Ubuntu deployments,
+          to game server optimization, all while minimizing downtime.
         </Text>
       </HighlightsItem>
-      <HighlightsTestimonialItem
-        name="Renata Alink"
-        description="Founder"
+
+      <HighlightsHobbyItem
+        name="Colleague Feedback"
+        description="From a recent project lead"
         avatar="/static/images/avatar.jpg"
-        gradient={['pink.200', 'purple.500']}
+        gradient={['blue.300', 'purple.500']}
       >
-        “Saas UI helped us set up a beautiful modern UI in no time. It saved us
-        hundreds of hours in development time and allowed us to focus on
-        business logic for our specific use-case from the start.”
-      </HighlightsTestimonialItem>
-      <HighlightsItem
-        colSpan={[1, null, 2]}
-        title="Start your next idea two steps ahead"
-      >
+        “Parker’s ability to connect backend code with network architecture
+        saved us weeks in development. His solutions are fast, secure, and
+        adaptable to change.”
+      </HighlightsHobbyItem>
+
+      <HighlightsItem colSpan={[1, null, 2]} title="Always Building, Always Learning">
         <Text color="muted" fontSize="lg">
-          We took care of all your basic frontend needs, so you can start
-          building functionality that makes your product unique.
+          Whether experimenting with new APIs, refining automation pipelines,
+          or studying the latest in networking protocols, I stay on top of
+          emerging tech so my solutions are ready for tomorrow’s challenges.
         </Text>
         <Wrap mt="8">
           {[
-            'authentication',
-            'navigation',
-            'crud',
-            'settings',
-            'multi-tenancy',
-            'layouts',
-            'billing',
-            'a11y testing',
-            'server-side rendering',
-            'documentation',
-            'onboarding',
-            'storybooks',
-            'theming',
-            'upselling',
-            'unit testing',
-            'feature flags',
-            'responsiveness',
+            'Backend Development',
+            'API Design',
+            'Network Configuration',
+            'Linux Administration',
+            'CI/CD Pipelines',
+            'Database Management',
+            'Cloud Infrastructure',
+            'Performance Tuning',
+            'Security Hardening',
           ].map((value) => (
             <Tag
               key={value}
@@ -322,16 +288,15 @@ const FeaturesSection = () => {
           textAlign="left"
           as="p"
         >
-          Not your standard
-          <Br /> dashboard template.
+          Turning complex systems into seamless solutions.
         </Heading>
       }
       description={
         <>
-          Saas UI Pro includes everything you need to build modern frontends.
-          <Br />
-          Use it as a template for your next product or foundation for your
-          design system.
+          From designing APIs to managing network architecture, I build
+          backends that perform under pressure. Every project gets a balance
+          of scalability, security, and maintainability, with a focus on
+          the people who use it.
         </>
       }
       align="left"
@@ -339,69 +304,104 @@ const FeaturesSection = () => {
       iconSize={4}
       features={[
         {
-          title: '#components.',
+          title: 'Scalable Backend Development',
           icon: FiBox,
-          description:
-            'All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.',
+          description: (
+            <>
+              <br />Designing and building backend architectures that handle growth
+              effortlessly from APIs, to full application logic with clean,
+              maintainable code.
+            </>
+          ),
           variant: 'inline',
         },
         {
-          title: 'Starterkits.',
+          title: 'Network Aware Systems',
           icon: FiLock,
-          description:
-            'Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.',
+          description: (
+            <>
+              <br />Integrating deep networking knowledge into backend design,
+              ensuring low latency, high reliability, and secure data flow across
+              services.
+            </>
+          ),
           variant: 'inline',
         },
         {
-          title: 'Documentation.',
+          title: 'Performance Optimization',
           icon: FiSearch,
-          description:
-            'Extensively documented, including storybooks, best practices, use-cases and examples.',
+          description: (
+            <>
+              <br />Tuning applications, databases, and network configurations to
+              run faster and more efficiently, even under heavy workloads.
+            </>
+          ),
           variant: 'inline',
         },
         {
-          title: 'Onboarding.',
+          title: 'Infrastructure Engineering',
           icon: FiUserPlus,
-          description:
-            'Add user onboarding flows, like tours, hints and inline documentation without breaking a sweat.',
+          description: (
+            <>
+              <br />Deploying and maintaining Linux servers, configuring cloud
+              resources, and automating workflows for maximum uptime and minimal
+              manual intervention.
+            </>
+          ),
           variant: 'inline',
         },
         {
-          title: 'Feature flags.',
+          title: 'Security First Mindset',
           icon: FiFlag,
-          description:
-            "Implement feature toggles for your billing plans with easy to use hooks. Connect Flagsmith, or other remote config services once you're ready.",
+          description: (
+            <>
+              <br />Applying strong security practices to backend code, server
+              configurations, and network setups to safeguard systems and users.
+            </>
+          ),
           variant: 'inline',
         },
         {
-          title: 'Upselling.',
+          title: 'Cross Stack Integration',
           icon: FiTrendingUp,
-          description:
-            '#components and hooks for upgrade flows designed to make upgrading inside your app frictionless.',
+          description: (
+            <>
+              <br />Bridging diverse tools and technologies, from databases, to
+              frontend clients, into cohesive, well documented, and maintainable
+              systems.
+            </>
+          ),
           variant: 'inline',
         },
         {
-          title: 'Themes.',
+          title: 'Creative Problem Solving',
           icon: FiToggleLeft,
-          description:
-            'Includes multiple themes with darkmode support, always have the perfect starting point for your next project.',
+          description: (
+            <>
+              <br />Breaking down complex technical challenges into actionable
+              solutions that balance performance, scalability, and ease of use.
+            </>
+          ),
           variant: 'inline',
         },
         {
-          title: 'Generators.',
+          title: 'Custom Built Solutions',
           icon: FiTerminal,
-          description:
-            'Extend your design system while maintaininig code quality and consistency with built-in generators.',
+          description: (
+            <>
+              <br />Crafting tailored backend tools, scripts, and integrations that
+              address unique project requirements and speed up delivery.
+            </>
+          ),
           variant: 'inline',
         },
         {
-          title: 'Monorepo.',
+          title: 'Continuous Growth',
           icon: FiCode,
           description: (
             <>
-              All code is available as packages in a high-performance{' '}
-              <Link href="https://turborepo.com">Turborepo</Link>, you have full
-              control to modify and adjust it to your workflow.
+              <br />Always exploring new technologies, frameworks, and best
+              practices to improve my work and keep pace with an evolving industry.
             </>
           ),
           variant: 'inline',
@@ -411,34 +411,46 @@ const FeaturesSection = () => {
   )
 }
 
-const TestimonialsSection = () => {
-  const columns = React.useMemo(() => {
-    return testimonials.items.reduce<Array<typeof testimonials.items>>(
-      (columns, t, i) => {
-        columns[i % 3].push(t)
-
-        return columns
-      },
-      [[], [], []],
-    )
-  }, [])
+const AutomotiveSection = () => {
+  const automotiveItems = [
+    {
+      title: 'Passion for Cars',
+      description:
+        'Whether it’s classic muscle or modern performance, I enjoy learning about automotive design, engineering, and culture.',
+      image: '/static/images/automotive/cars1.jpg',
+    },
+    {
+      title: 'Automotive Photography',
+      description:
+        'Capturing the details, lines, and motion of vehicles is one of my favorite creative outlets. I focus on both static shots and action photography.',
+      image: '/static/images/automotive/photography1.jpg',
+    },
+    {
+      title: 'Track Days & Meets',
+      description:
+        'I often attend car meets and track events — not just to admire the builds, but to connect with other enthusiasts and document the experience.',
+      image: '/static/images/automotive/events1.jpg',
+    },
+  ]
 
   return (
-    <Testimonials
-      title={testimonials.title}
+    <Hobbies
+      title="Cars & Automotive Photography"
       columns={[1, 2, 3]}
       innerWidth="container.xl"
     >
       <>
-        {columns.map((column, i) => (
+        {automotiveItems.map((item, i) => (
           <Stack key={i} spacing="8">
-            {column.map((t, i) => (
-              <Testimonial key={i} {...t} />
-            ))}
+            <Hobbies
+              name={item.title}
+              description={item.description}
+              avatar={item.image}
+            />
           </Stack>
         ))}
       </>
-    </Testimonials>
+    </Hobbies>
   )
 }
 

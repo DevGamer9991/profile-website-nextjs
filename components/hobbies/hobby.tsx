@@ -11,7 +11,7 @@ import {
 import { Link } from "@saas-ui/react";
 import { FaTwitter } from "react-icons/fa";
 
-export interface TestimonialProps extends CardProps {
+export interface HobbyProps extends CardProps {
   name: string;
   description: React.ReactNode;
   avatar: string;
@@ -19,14 +19,14 @@ export interface TestimonialProps extends CardProps {
   children?: React.ReactNode;
 }
 
-export const Testimonial = ({
+export const Hobby = ({
   name,
   description,
   avatar,
   href,
   children,
   ...rest
-}: TestimonialProps) => {
+}: HobbyProps) => {
   return (
     <Card position="relative" {...rest}>
       <CardHeader display="flex" flexDirection="row" alignItems="center">

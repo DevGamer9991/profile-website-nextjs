@@ -5,15 +5,15 @@ import {
   SectionTitle,
   SectionTitleProps,
 } from 'components/section'
-import { Testimonial } from './testimonial'
+import { Hobby } from './hobby'
 
-export interface TestimonialsProps
+export interface HobbiesProps
   extends Omit<SectionProps, 'title'>,
     Pick<SectionTitleProps, 'title' | 'description'> {
   columns?: ResponsiveValue<number>
 }
 
-export const Testimonials: React.FC<TestimonialsProps> = (props) => {
+export const Hobbies: React.FC<HobbiesProps> = (props) => {
   const { children, title, columns = [1, null, 2], ...rest } = props
   return (
     <Section {...rest}>
