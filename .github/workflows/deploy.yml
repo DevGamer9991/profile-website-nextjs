@@ -37,4 +37,5 @@ jobs:
           script: |
             cd /home/user/profile-website-nextjs
             git pull origin main
-            pnpm dev
+            pnpm build
+            pm2 restart 0
