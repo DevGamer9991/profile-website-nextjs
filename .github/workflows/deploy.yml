@@ -36,7 +36,6 @@ jobs:
           port: 5643
           script: |
             cd /home/user/profile-website-nextjs
-            ls -l ~/.ssh/
             git pull
             pnpm build
             pm2 restart 0
