@@ -11,7 +11,7 @@ import {
 import { transparentize } from '@chakra-ui/theme-tools'
 
 import { Section, SectionProps } from '#components/section'
-import { Hobby, Hobbies } from '#components/hobbies'
+import { Hobby, HobbyProps } from '#components/hobbies'
 import { motion } from 'framer-motion'
 import { MotionProps } from 'framer-motion'
 
@@ -46,7 +46,7 @@ export const HighlightsItem: React.FC<HighlightBoxProps> = (props) => {
 }
 
 export const HighlightsHobbyItem: React.FC<
-  HighlightBoxProps & TestimonialProps & { gradient: [string, string] }
+  HighlightBoxProps & HobbyProps & { gradient: [string, string] }
 > = (props) => {
   const {
     name,

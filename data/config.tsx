@@ -9,7 +9,7 @@ import { Em } from '#components/typography'
 const siteConfig = {
   logo: Logo,
   seo: {
-    title: <Em>Parker Thornton</Em>,
+    title: 'Parker Thornton',
     description: 'Backend Developer, and Automotive Photographer',
   } as NextSeoProps,
   termsUrl: '#',
@@ -29,10 +29,12 @@ const siteConfig = {
       //   label: 'FAQ',
       // },
       {
+        id: 'contact',
         label: 'Contact Me',
         href: '/contact',
       },
       {
+        id: 'github',
         label: 'View Github',
         href: 'https://github.com/DevGamer9991',
         variant: 'primary',
