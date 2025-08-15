@@ -92,7 +92,7 @@ const HeroSection: React.FC = () => {
         <Stack direction={{ base: 'column', lg: 'row' }} alignItems="center">
           <Hero
             id="home"
-            justifyContent="flex-start"
+            justifyContent="flex-center"
             px="0"
             title={
               <FallInPlace>
@@ -111,7 +111,7 @@ const HeroSection: React.FC = () => {
           >
             <FallInPlace delay={0.8}>
               <HStack pt="4" pb="12" spacing="8">
-                <NextjsLogo height="28px" /> <ChakraLogo height="20px" />
+                {/* <NextjsLogo height="28px" /> <ChakraLogo height="20px" /> */}
               </HStack>
 
               <ButtonGroup spacing={4} alignItems="center">
@@ -144,18 +144,27 @@ const HeroSection: React.FC = () => {
             height="600px"
             position="absolute"
             display={{ base: 'none', lg: 'block' }}
-            left={{ lg: '60%', xl: '55%' }}
+            left={{ lg: '60%', xl: '60%' }}
             width="80vw"
             maxW="1100px"
             margin="0 auto"
           >
             <FallInPlace delay={1}>
               <Box overflow="hidden" height="100%">
-                <Image
+                {/* <Image
                   src="/static/screenshots/list.png"
                   width={1200}
                   height={762}
                   alt="Screenshot of a ListPage in Saas UI Pro"
+                  quality="75"
+                  priority
+                /> */}
+                <Image
+                  src="/static/images/car.png"
+                  width={400}
+                  height={200}
+                  style={{ borderRadius: '12px' }}
+                  alt="Screenshot of a HeroSection in Saas UI Pro"
                   quality="75"
                   priority
                 />
@@ -175,14 +184,14 @@ const HeroSection: React.FC = () => {
           {
             title: 'Car Enthusiast',
             icon: FiTruck,
-            description: 'Passionate about high-performance cars, tuning, and track driving.',
+            description: 'Passionate about cars, on or off the track',
             iconPosition: 'left',
             delay: 0.6,
           },
           {
             title: 'Server Hosting',
             icon: FiServer,
-            description: 'Runs and maintains custom game servers with optimized performance.',
+            description: 'Helps Run and maintain a server for Assetto Corsa with over 30k active users.',
             iconPosition: 'left',
             delay: 0.8,
           },
@@ -212,7 +221,7 @@ const HighlightsSection = () => {
 
   return (
     <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Technical Breadth">
+      <HighlightsItem colSpan={[1, null, 2]} title="Technical Expertise">
         <VStack alignItems="flex-start" spacing="8">
           <Text color="muted" fontSize="xl">
             Over a decade of programming experience across multiple languages,
@@ -225,9 +234,7 @@ const HighlightsSection = () => {
 
       <HighlightsItem title="Real World Server Experience">
         <Text color="muted" fontSize="lg">
-          Managing personal and community servers taught me how to configure,
-          secure, and maintain complex environments, from Ubuntu deployments,
-          to game server optimization, all while minimizing downtime.
+          Experience with Proxmox clusters and Docker deployments has enabled me to orchestrate scalable, resilient server environments. I leverage virtualization and containerization to streamline updates, isolate workloads, and maximize resource efficiency—whether hosting game servers or deploying backend services.
         </Text>
       </HighlightsItem>
 
@@ -249,9 +256,7 @@ const HighlightsSection = () => {
         }}
       >
         <Text color="muted" fontSize="lg">
-          With a background in networking, I design systems that are not only
-          performant but also resilient. I understand how to optimize data flow,
-          reduce latency, and ensure secure communication between services.
+          With a background in designing and programming API backends, I build systems that are robust, scalable, and easy to maintain. My experience covers architecting endpoints, optimizing data flow, and ensuring secure, reliable communication between services for seamless integration.
         </Text>
       </HighlightsItem>
 
@@ -265,6 +270,7 @@ const HighlightsSection = () => {
           {[
             'Backend Development',
             'API Design',
+            'Docker',
             'Network Configuration',
             'Linux Administration',
             'CI/CD Pipelines',
@@ -272,6 +278,7 @@ const HighlightsSection = () => {
             'Cloud Infrastructure',
             'Performance Tuning',
             'Security Hardening',
+            'Proxmox Clustering'
           ].map((value) => (
             <Tag
               key={value}
@@ -496,7 +503,7 @@ const InstagramSection = () => {
   return (
     <Container maxW="container.xl" py="20">
       <Heading as="h2" size="xl" mb="4" textAlign="center">
-        My Instagram
+        My Automotive Photography Instagram
       </Heading>
       <Box position="relative" overflow="hidden" pt="4">
         <Wrap spacing="4" justify="center" width="100%">
@@ -523,6 +530,7 @@ const InstagramSection = () => {
             alt={item.caption || 'Instagram Media'}
             width={300}
             height={300}
+            quality="75"
             objectFit="cover"
           />
           <Box p="4">
