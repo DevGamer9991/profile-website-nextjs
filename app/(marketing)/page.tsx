@@ -43,6 +43,8 @@ import {
 
 import * as React from 'react'
 
+import { motion } from "motion/react"
+
 import { ButtonLink } from '#components/button-link/button-link'
 import { Faq } from '#components/faq'
 import { Features } from '#components/features'
@@ -62,11 +64,6 @@ import faq from '#data/faq'
 import pricing from '#data/pricing'
 import hobbies from '#data/hobbies'
 
-export const meta: Metadata = {
-  title: 'Saas UI Landingspage',
-  description: 'Free SaaS landingspage starter kit',
-}
-
 const Home: NextPage = () => {
   return (
     <Box>
@@ -75,6 +72,8 @@ const Home: NextPage = () => {
       <HighlightsSection />
 
       <FeaturesSection />
+
+      <InstagramSection />
 
       {/* <HobbySection /> */}
 
@@ -218,7 +217,7 @@ const HighlightsSection = () => {
           <Text color="muted" fontSize="xl">
             Over a decade of programming experience across multiple languages,
             combined with deep knowledge in backend systems, API design, and
-            networking infrastructure. I’m comfortable working across the stack
+            networking infrastructure. I'm comfortable working across the stack
             to connect systems, optimize performance, and ensure reliability.
           </Text>
         </VStack>
@@ -446,6 +445,126 @@ const FeaturesSection = () => {
 //     </Hobbies>
 //   )
 // }
+
+const InstagramSection = () => {
+  const [media, setMedia] = React.useState<any[]>([])
+  const [error, setError] = React.useState<string | null>(null)
+  const [showAll, setShowAll] = React.useState(false)
+
+  React.useEffect(() => {
+    const fetchInstagramMedia = async () => {
+      try {
+        const response = await fetch('/api/instagram')
+        if (!response.ok) {
+          throw new Error('Failed to fetch Instagram media')
+        }
+        const data = await response.json()
+        setMedia(data)
+      } catch (err: any) {
+        setError(err.message)
+      }
+    }
+
+    fetchInstagramMedia()
+  }, [])
+
+  if (error) {
+    return (
+      <Container maxW="container.xl" py="20">
+        <Text color="red.500" textAlign="center">
+          {error}
+        </Text>
+      </Container>
+    )
+  }
+
+  if (media.length === 0) {
+    return (
+      <Container maxW="container.xl" py="20">
+        <Text color="muted" textAlign="center">
+          No media found on Instagram.
+        </Text>
+      </Container>
+    )
+  }
+
+  // Assume 4 items per row for desktop, 2 for mobile/tablet
+  const itemsPerRow = 3
+  const visibleRows = 2
+  const visibleCount = itemsPerRow * visibleRows
+
+  return (
+    <Container maxW="container.xl" py="20">
+      <Heading as="h2" size="xl" mb="4" textAlign="center">
+        My Instagram
+      </Heading>
+      <Box position="relative" overflow="hidden" pt="4">
+        <Wrap spacing="4" justify="center" width="100%">
+          {media.map((item, idx) => {
+        const shouldHide = !showAll && idx >= visibleCount
+        return (
+          <motion.div
+            key={item.id}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setTimeout(() => window.open(item.permalink, '_blank'), 200)}
+            style={{ flex: '0 1 300px', display: shouldHide ? 'none' : 'block' }}
+          >
+            <Box
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          width="300px"
+            >
+          <Image
+            src={item.media_url}
+            alt={item.caption || 'Instagram Media'}
+            width={300}
+            height={300}
+            objectFit="cover"
+          />
+          <Box p="4">
+            <Text fontWeight="bold">{item.username}</Text>
+            <Text color="muted">{item.timestamp}</Text>
+            <HStack mt="2">
+              <Icon as={FiThumbsUp} />
+              <Text>{item.like_count}</Text>
+            </HStack>
+          </Box>
+            </Box>
+          </motion.div>
+        )
+          })}
+        </Wrap>
+        {!showAll && media.length > visibleCount && (
+          <Box
+        position="absolute"
+        left={0}
+        top={0}
+        right={0}
+        bottom={0}
+        height="100%"
+        pointerEvents="none"
+        zIndex={1}
+        bgGradient="linear(to-t, gray.900 20%, transparent 100%)"
+          />
+        )}
+      </Box>
+      {!showAll && media.length > visibleCount && (
+        <Flex justify="center" mt="8">
+          <IconButton
+            aria-label="Show more"
+            icon={<FiArrowRight />}
+            colorScheme="primary"
+            onClick={() => setShowAll(true)}
+          />
+        </Flex>
+      )}
+    </Container>
+  )
+}
 
 const PricingSection = () => {
   return (

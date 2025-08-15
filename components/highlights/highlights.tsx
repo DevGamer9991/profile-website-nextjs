@@ -12,6 +12,8 @@ import { transparentize } from '@chakra-ui/theme-tools'
 
 import { Section, SectionProps } from '#components/section'
 import { Hobby, Hobbies } from '#components/hobbies'
+import { motion } from 'framer-motion'
+import { MotionProps } from 'framer-motion'
 
 export interface HighlightBoxProps
   extends GridItemProps,
