@@ -39,6 +39,6 @@ jobs:
           port: 5643
           script: |
             cd /home/user/profile-website-nextjs
-            eval "$(ssh-agent -s)" && echo "$SSH_PASSPHRASE" | ssh-add ~/.ssh/id_id_ed25519 && git pull origin main
+            eval "$(ssh-agent -s)" && echo "$SSH_PASSPHRASE" | ssh-add ~/.ssh/id_ed25519 && git pull origin main
             pnpm build
             pm2 restart 0
