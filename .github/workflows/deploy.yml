@@ -35,6 +35,7 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ""
           port: 5643
           script: |
             cd /home/user/profile-website-nextjs
