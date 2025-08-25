@@ -35,6 +35,7 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           port: 5643
           script: |
+            export PATH="/home/user/.nvm/versions/node/v22.17.1/bin:$PATH"
             cd /home/user/profile-website-nextjs
             git pull
             pnpm install
