@@ -70,7 +70,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
   const bgColor = useColorModeValue('whiteAlpha.900', 'blackAlpha.900')
 
   useRouteChanged(onClose)
-  console.log({ isOpen })
+  // console.log({ isOpen })
   /**
    * Scenario: Menu is open on mobile, and user resizes to desktop/tablet viewport.
    * Result: We'll close the menu

@@ -2,6 +2,12 @@ import { ColorModeScript } from '@chakra-ui/react'
 
 import { Provider } from './provider'
 
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger, ScrollSmoother } from 'gsap/all'
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
 export default function Layout(props: { children: React.ReactNode }) {
   const colorMode = "dark"
 

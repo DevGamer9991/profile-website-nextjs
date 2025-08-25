@@ -64,7 +64,14 @@ import faq from '#data/faq'
 import pricing from '#data/pricing'
 import hobbies from '#data/hobbies'
 
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger, ScrollSmoother } from 'gsap/all'
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
 const Home: NextPage = () => {
+
   return (
     <Box>
       <HeroSection />
@@ -85,6 +92,24 @@ const Home: NextPage = () => {
 }
 
 const HeroSection: React.FC = () => {
+
+  const title = React.useRef<HTMLHeadingElement>(null);
+  const description = React.useRef<HTMLHeadingElement>(null);
+  const buttons = React.useRef<HTMLDivElement>(null);
+  const photo = React.useRef<HTMLImageElement>(null);
+
+  useGSAP(() => {
+    gsap.set(title.current, { opacity: 0, y: 20, visibility: 'visible' });
+    gsap.set(description.current, { opacity: 0, y: 20, visibility: 'visible' });
+    gsap.set(buttons.current, { opacity: 0, y: 20, visibility: 'visible' });
+    gsap.set(photo.current, { opacity: 0, y: 20, visibility: 'visible' });
+
+    gsap.to(title.current, { opacity: 1, y: 0, duration: 2, delay: 0, ease: 'power1.out', });
+    gsap.to(description.current, { opacity: 1, y: 0, duration: 2, delay: 0, ease: 'power1.out', });
+    gsap.to(buttons.current, { opacity: 1, y: 0, duration: 2, delay: 0.25, ease: 'power1.out', });
+    gsap.to(photo.current, { opacity: 1, y: 0, duration: 2, delay: 0.4, ease: 'power1.out', });
+  });
+
   return (
     <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" zIndex="-1" />
@@ -95,21 +120,21 @@ const HeroSection: React.FC = () => {
             justifyContent="flex-center"
             px="0"
             title={
-              <FallInPlace>
+              <Text as="h1" textStyle="h1" textAlign="left" ref={title} style={{ visibility: 'hidden' }}>
                 Hi! My Name is
                 <Br /> Parker Thornton
-              </FallInPlace>
+              </Text>
             }
             description={
-              <FallInPlace delay={0.4} fontWeight="medium">
+              <h2 ref={description} style={{ fontWeight: 500, visibility: 'hidden' }}>
                 Backend developer and systems architect with a passion for building
                 high performance infrastructure. I blend strong programming skills
                 with hands on networking experience, from server administration to
                 API development, to deliver robust and scalable solutions.
-              </FallInPlace>
+              </h2>
             }
           >
-            <FallInPlace delay={0.8}>
+            <div ref={buttons} style={{ visibility: 'hidden' }}>
               <HStack pt="4" pb="12" spacing="8">
                 {/* <NextjsLogo height="28px" /> <ChakraLogo height="20px" /> */}
               </HStack>
@@ -138,7 +163,7 @@ const HeroSection: React.FC = () => {
                   View Github
                 </ButtonLink>
               </ButtonGroup>
-            </FallInPlace>
+            </div>
           </Hero>
           <Box
             height="600px"
@@ -149,33 +174,34 @@ const HeroSection: React.FC = () => {
             maxW="1100px"
             margin="0 auto"
           >
-            <FallInPlace delay={1}>
-              <Box overflow="hidden" height="100%">
-                {/* <Image
-                  src="/static/screenshots/list.png"
-                  width={1200}
-                  height={762}
-                  alt="Screenshot of a ListPage in Saas UI Pro"
-                  quality="75"
-                  priority
-                /> */}
-                <Image
-                  src="/static/images/car.png"
-                  width={400}
-                  height={200}
-                  style={{ borderRadius: '12px' }}
-                  alt="Screenshot of a HeroSection in Saas UI Pro"
-                  quality="75"
-                  priority
-                />
-              </Box>
-            </FallInPlace>
+            <Box overflow="hidden" height="100%">
+              {/* <Image
+                src="/static/screenshots/list.png"
+                width={1200}
+                height={762}
+                alt="Screenshot of a ListPage in Saas UI Pro"
+                quality="75"
+                priority
+              /> */}
+              <Image
+                ref={photo}
+                src="/static/images/car.png"
+                width={400}
+                height={200}
+                style={{ borderRadius: '12px', visibility: 'hidden' }}
+                alt="Screenshot of a HeroSection in Saas UI Pro"
+                quality="75"
+                priority
+
+              />
+            </Box>
           </Box>
         </Stack>
       </Container>
 
       <Features
         id="hobbies"
+        scrub={false}
         columns={[1, 2, 4]}
         iconSize={4}
         innerWidth="container.xl"
@@ -210,7 +236,6 @@ const HeroSection: React.FC = () => {
             delay: 1.1,
           },
         ]}
-        reveal={FallInPlace}
       />
     </Box>
   )
@@ -321,6 +346,10 @@ const FeaturesSection = () => {
       align="left"
       columns={[1, 2, 3]}
       iconSize={4}
+      scrub={true}
+      duration={1}
+      stagger={0.1}
+      delay={0}
       features={[
         {
           title: 'Scalable Backend Development',

@@ -20,6 +20,9 @@ dependencies:
   '@fontsource-variable/inter':
     specifier: ^5.1.0
     version: 5.1.0
+  '@gsap/react':
+    specifier: ^2.1.2
+    version: 2.1.2(gsap@3.13.0)(react@18.3.1)
   '@saas-ui/auth':
     specifier: ^3.4.0
     version: 3.4.0(@chakra-ui/react@2.10.1)(@emotion/react@11.13.3)(@emotion/styled@11.13.0)(framer-motion@11.11.1)(react-dom@18.3.1)(react@18.3.1)
@@ -38,6 +41,9 @@ dependencies:
   framer-motion:
     specifier: ^11.11.1
     version: 11.11.1(react-dom@18.3.1)(react@18.3.1)
+  gsap:
+    specifier: ^3.13.0
+    version: 3.13.0
   motion:
     specifier: ^12.23.12
     version: 12.23.12(react-dom@18.3.1)(react@18.3.1)
@@ -2020,6 +2026,16 @@ packages:
 
   /@fontsource-variable/inter@5.1.0:
     resolution: {integrity: sha512-Wj2dUGP0vUpxRGQTXQTCNJO+aLcFcQm+gUPXfj/aS877bQkEPBPv9JvZJpwdm2vzelt8NTZ+ausKlBCJjh2XIg==}
+    dev: false
+
+  /@gsap/react@2.1.2(gsap@3.13.0)(react@18.3.1):
+    resolution: {integrity: sha512-JqliybO1837UcgH2hVOM4VO+38APk3ECNrsuSM4MuXp+rbf+/2IG2K1YJiqfTcXQHH7XlA0m3ykniFYstfq0Iw==}
+    peerDependencies:
+      gsap: ^3.12.5
+      react: '>=17'
+    dependencies:
+      gsap: 3.13.0
+      react: 18.3.1
     dev: false
 
   /@hookform/resolvers@3.9.0(react-hook-form@7.53.0):
@@ -4829,6 +4845,10 @@ packages:
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
+
+  /gsap@3.13.0:
+    resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
+    dev: false
 
   /has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
