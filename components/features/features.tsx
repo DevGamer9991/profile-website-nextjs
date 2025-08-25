@@ -16,6 +16,12 @@ import {
 
 import { Section, SectionTitle, SectionTitleProps } from 'components/section'
 
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Revealer = ({ children }: any) => {
   return children
 }
@@ -32,6 +38,10 @@ export interface FeaturesProps
   reveal?: React.FC<any>
   iconSize?: SystemProps['boxSize']
   innerWidth?: SystemProps['maxW']
+  scrub?: boolean
+  duration?: number
+  stagger?: number
+  delay?: number
 }
 
 export interface FeatureProps {
@@ -42,7 +52,9 @@ export interface FeatureProps {
   iconSize?: SystemProps['boxSize']
   ip?: 'left' | 'top'
   variant?: string
-  delay?: number
+  delay?: number,
+  className?: string,
+  style?: React.CSSProperties
 }
 
 export const Feature: React.FC<FeatureProps> = (props) => {
@@ -54,6 +66,8 @@ export const Feature: React.FC<FeatureProps> = (props) => {
     iconSize = 8,
     ip,
     variant,
+    className,
+    style
   } = props
   const styles = useMultiStyleConfig('Feature', { variant })
 
@@ -61,7 +75,7 @@ export const Feature: React.FC<FeatureProps> = (props) => {
   const direction = pos === 'left' ? 'row' : 'column'
 
   return (
-    <Stack sx={styles.container} direction={direction}>
+    <Stack style={style} sx={styles.container} direction={direction} className={className}>
       {icon && (
         <Circle sx={styles.icon}>
           <Icon as={icon} boxSize={iconSize} />
@@ -77,21 +91,32 @@ export const Feature: React.FC<FeatureProps> = (props) => {
 
 export const Features: React.FC<FeaturesProps> = (props) => {
   const {
+    id,
     title,
     description,
     features,
     columns = [1, 2, 3],
     spacing = 8,
+    scrub = true,
     align: alignProp = 'center',
     iconSize = 8,
     aside,
     reveal: Wrap = Revealer,
+    duration = 2,
+    stagger = 0.25,
+    delay = 0.5,
     ...rest
   } = props
 
   const align = !!aside ? 'left' : alignProp
 
   const ip = align === 'left' ? 'left' : 'top'
+
+  useGSAP(() => {
+    gsap.set(`.feature-${id}`, { opacity: 0, y: 20, visibility: 'visible' });
+
+    gsap.to(`.feature-${id}`, { scrollTrigger: { trigger: `.feature-${id}`, scrub: scrub, start: "top 90%", end: "top 40%" }, opacity: 1, y: 0, duration: duration, stagger: stagger, ease: "power1.out", delay: delay });
+  });
 
   return (
     <Section {...rest}>
@@ -100,21 +125,22 @@ export const Features: React.FC<FeaturesProps> = (props) => {
           {(title || description) && (
             <Wrap>
               <SectionTitle
+                id={id}
                 title={title}
                 description={description}
                 align={align}
               />
             </Wrap>
           )}
-          <SimpleGrid columns={columns} spacing={spacing}>
+            <SimpleGrid columns={columns} spacing={spacing} >
             {features.map((feature, i) => {
               return (
-                <Wrap key={i} delay={feature.delay}>
-                  <Feature iconSize={iconSize} {...feature} ip={ip} />
-                </Wrap>
+              <Wrap key={i}>
+                <Feature iconSize={iconSize} {...feature} ip={ip} className={`feature-${id}`} style={{ visibility: 'hidden' }} />
+              </Wrap>
               )
             })}
-          </SimpleGrid>
+            </SimpleGrid>
         </VStack>
         {aside && (
           <Box flex="1" p="8">
