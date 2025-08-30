@@ -80,7 +80,7 @@ const Home: NextPage = () => {
 
       <FeaturesSection />
 
-      <InstagramSection />
+      {/* <InstagramSection /> */}
 
       {/* <HobbySection /> */}
 
@@ -244,9 +244,15 @@ const HeroSection: React.FC = () => {
 const HighlightsSection = () => {
   const { value, onCopy, hasCopied } = useClipboard('yarn add @saas-ui/react')
 
+  useGSAP(() => {
+    gsap.set(".highlight-item", {opacity: 1, scale: 1, visibility: "visible"})
+
+    // gsap.to(".highlight-item", { scrollTrigger: { trigger: `.highlight-item`, scrub: true, start: "top 90%", end: "top 40%" }, opacity: 1, y: 0, scale: 1, duration: 2, stagger: 0.2, ease: "power1.out", delay: 0 })
+  })
+
   return (
     <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Technical Expertise">
+      <HighlightsItem colSpan={[1, null, 2]} title="Technical Expertise" className="highlight-item" visibility="hidden">
         <VStack alignItems="flex-start" spacing="8">
           <Text color="muted" fontSize="xl">
             Over a decade of programming experience across multiple languages,
@@ -257,7 +263,7 @@ const HighlightsSection = () => {
         </VStack>
       </HighlightsItem>
 
-      <HighlightsItem title="Real World Server Experience">
+      <HighlightsItem title="Real World Server Experience" className="highlight-item" visibility="hidden">
         <Text color="muted" fontSize="lg">
           Experience with Proxmox clusters and Docker deployments has enabled me to orchestrate scalable, resilient server environments. I leverage virtualization and containerization to streamline updates, isolate workloads, and maximize resource efficiency—whether hosting game servers or deploying backend services.
         </Text>
@@ -279,13 +285,14 @@ const HighlightsSection = () => {
         style={{
           background: 'radial-gradient(circle at 10% 10%, #0000ff3d 0%, #80008042 80%)',
         }}
+        className="highlight-item" visibility="hidden"
       >
         <Text color="muted" fontSize="lg">
           With a background in designing and programming API backends, I build systems that are robust, scalable, and easy to maintain. My experience covers architecting endpoints, optimizing data flow, and ensuring secure, reliable communication between services for seamless integration.
         </Text>
       </HighlightsItem>
 
-      <HighlightsItem colSpan={[1, null, 2]} title="Always Building, Always Learning">
+      <HighlightsItem colSpan={[1, null, 2]} title="Always Building, Always Learning" className="highlight-item" visibility="hidden">
         <Text color="muted" fontSize="lg">
           Whether experimenting with new APIs, refining automation pipelines,
           or studying the latest in networking protocols, I stay on top of
