@@ -41,7 +41,7 @@ import {
   FiTruck,
   FiServer,
   FiCamera,
-  FiGithub
+  FiGithub,
 } from 'react-icons/fi'
 
 import * as React from 'react'
