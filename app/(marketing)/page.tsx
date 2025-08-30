@@ -3,6 +3,7 @@
 import {
   Box,
   ButtonGroup,
+  Button,
   Container,
   Flex,
   HStack,
@@ -16,6 +17,7 @@ import {
   Wrap,
   useClipboard,
 } from '@chakra-ui/react'
+
 import { Br, Link } from '@saas-ui/react'
 import type { Metadata, NextPage } from 'next'
 import Image from 'next/image'
@@ -39,6 +41,7 @@ import {
   FiTruck,
   FiServer,
   FiCamera,
+  FiGithub,
 } from 'react-icons/fi'
 
 import * as React from 'react'
@@ -79,6 +82,8 @@ const Home: NextPage = () => {
       <HighlightsSection />
 
       <FeaturesSection />
+
+      <SourceCode />
 
       {/* <InstagramSection /> */}
 
@@ -610,6 +615,57 @@ const InstagramSection = () => {
   )
 }
 
+const SourceCode = () => {
+  return (
+    <Container maxW="container.md" py={16}>
+      <Box
+        bgGradient="linear(to-r, purple.500, cyan.500)"
+        borderRadius="lg"
+        p={[6, 10]}
+        boxShadow="lg"
+        mb={8}
+        textAlign="left"
+        position="relative"
+        _dark={{
+          bgGradient: "linear(to-r, purple.700, cyan.600)",
+        }}
+      >
+        <VStack align="flex-start" spacing={6}>
+          <Heading
+            lineHeight="short"
+            fontSize={['2xl', null, '4xl']}
+            fontWeight="bold"
+            color="white"
+            as="h2"
+            letterSpacing="tight"
+            mb={2}
+            sx={{ textShadow: "0 2px 10px rgba(0,0,0,0.25)" }}
+          >
+            <Icon as={FiGithub} boxSize={8} mr={2} verticalAlign="middle" /> Source Code
+          </Heading>
+          <Text fontSize={['md', null, 'lg']} color="whiteAlpha.900">
+            If you would like the source code for this site, it's available on my GitHub!
+          </Text>
+          <Button
+            as="a"
+            href="https://github.com/DevGamer9991/profile-website-nextjs"
+            target="_blank"
+            leftIcon={<FiGithub />}
+            colorScheme="blackAlpha"
+            bg="whiteAlpha.900"
+            color="gray.900"
+            _hover={{ bg: "purple.400", color: "white" }}
+            fontWeight="bold"
+            boxShadow="md"
+            size="lg"
+          >
+            View on GitHub
+          </Button>
+        </VStack>
+      </Box>
+    </Container>
+  )
+}
 const PricingSection = () => {
   return (
     <Pricing {...pricing}>
