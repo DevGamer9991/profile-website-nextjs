@@ -666,8 +666,6 @@ const SourceCode = () => {
     </Container>
   )
 }
-
-
 const PricingSection = () => {
   return (
     <Pricing {...pricing}>
