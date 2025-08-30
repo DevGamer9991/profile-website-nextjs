@@ -1,62 +1,107 @@
-# Saas UI - Next.js - landing page.
+# Parker Thornton — Personal Profile Website
 
-This is a free Next.js landing page template based on https://saas-ui.dev.
-Feel free to submit any feature requests. If you use this template please share what you've built [on Twitter](https://twitter.com/saas_js) 🚀.
+This is my personal profile and portfolio site, built with [Next.js](https://nextjs.org/), [Chakra UI](https://chakra-ui.com/), and [Saas UI](https://saas-ui.dev/). It's a dynamic landing page that highlights my experience, skills, and hobbies as a backend developer and systems architect.
 
-**[View demo](https://saas-ui-nextjs-landing-page.netlify.app/)**
+**Live Site:** [parkerthornton.net](https://parkerthornton.net/)  
+**Source:** [github.com/DevGamer9991/profile-website-nextjs](https://github.com/DevGamer9991/profile-website-nextjs)
 
-## Tech
+---
 
-- Next.js (App router)
-- Chakra UI
-- Saas UI
-- Typescript
+## 👋 About Me
 
-## Features
+Hey there! I’m Parker Thornton. I build high performance infrastructure, design APIs, and run game servers for thousands of users. I love working at the intersection of backend code and networking.
 
-- Feature blocks
-- Testimonials
-- Pricing tables
-- Log in and Sign up pages
-- FAQ
+My site showcases:
+- My technical expertise (from API design to server orchestration)
+- Real-world hosting experience (Docker, Proxmox, Linux)
+- Hobbies like car photography, racing, and CTF challenges
 
-## Getting Started
+---
 
-First, clone this repo and run `pnpm i`
+## 🧰 Tech Stack
 
-To start the app run:
+- **Next.js** (App Router, TypeScript)
+- **Chakra UI & Saas UI** for components and styling
+- **Framer Motion, GSAP** for animation
+- **Instagram API** for live photo feed
+
+---
+
+## ✨ Features
+
+- Animated hero and highlights section
+- Dynamic feature blocks and skills
+- Integration with Instagram for my automotive photography
+- Pricing table and FAQ (great for freelance/service profiles)
+- Responsive and dark mode ready
+- Fully customizable from the `/data` folder
+
+---
+
+## 🚦 Getting Started
+
+Clone and install dependencies:
+
+```bash
+git clone https://github.com/DevGamer9991/profile-website-nextjs.git
+cd profile-website-nextjs
+pnpm install
+```
+
+Run locally:
 
 ```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+---
 
-## Configuration
+## 📝 Customization
 
-Configuration files to edit basic site information, add testimonials, faq and pricing table can be found in `/data`.
+- **Basic Info:** Edit `/data/config.ts` for your name, logo, and links.
+- **Sections:** Update `/app/(marketing)/page.tsx` for hero, highlights, and features.
+- **Pricing & FAQ:** Edit `/data/pricing.ts` and `/data/faq.ts`.
+- **Instagram:** Set `INSTAGRAM_USER_ID` and `INSTAGRAM_ACCESS_TOKEN` in `.env`.
 
-## Learn More
+---
 
-Find out more about Saas UI.
+## 📦 Folder Structure
 
-- [Saas UI Documentation](https://saas-ui.dev/docs).
+```
+app/                # Next.js app directory
+components/         # UI and layout components
+data/               # Site configuration, pricing, FAQ, hobbies
+public/             # Images, favicons, assets
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚡ Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Ready to deploy on [Vercel](https://vercel.com/) out of the box!
 
-## Deploy on Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/DevGamer9991/profile-website-nextjs)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📚 Learn More
 
-## License
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Chakra UI Docs](https://chakra-ui.com/docs)
+- [Saas UI Docs](https://saas-ui.dev/docs)
 
-MIT
+---
+
+## 🏁 Credits
+
+- [Saas UI](https://saas-ui.dev) for the base template and inspiration
+- [Chakra UI](https://chakra-ui.com) for the component library
+- [GSAP](https://gsap.com) & [Framer Motion](https://www.framer.com/motion/) for animation
+
+---
+
+## 📄 License
+
+MIT © 2025 [Parker Thornton](https://github.com/DevGamer9991)
