@@ -358,7 +358,7 @@ const FeaturesSection = () => {
       align="left"
       columns={[1, 2, 3]}
       iconSize={4}
-      scrub={true}
+      scrub={1}
       duration={1}
       stagger={0.1}
       delay={0}
