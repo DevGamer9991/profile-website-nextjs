@@ -38,7 +38,7 @@ export interface FeaturesProps
   reveal?: React.FC<any>
   iconSize?: SystemProps['boxSize']
   innerWidth?: SystemProps['maxW']
-  scrub?: boolean
+  scrub?: boolean | number
   duration?: number
   stagger?: number
   delay?: number
