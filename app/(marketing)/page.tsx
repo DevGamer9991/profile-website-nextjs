@@ -16,6 +16,7 @@ import {
   VStack,
   Wrap,
   useClipboard,
+  Stat, StatLabel, StatNumber, StatHelpText, StatDownArrow, Badge
 } from '@chakra-ui/react'
 
 import { Br, Link } from '@saas-ui/react'
@@ -75,11 +76,20 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const Home: NextPage = () => {
 
+  React.useEffect(() => {
+    const addView = async () => {
+      await fetch('/api/addView', { method: 'POST' });
+    };
+    addView();
+  }, []);
+
   return (
     <Box>
       <HeroSection />
 
       <HighlightsSection />
+
+      <StatsSection />
 
       <FeaturesSection />
 
@@ -666,6 +676,55 @@ const SourceCode = () => {
     </Container>
   )
 }
+
+const StatsSection = () => {
+
+  const [stats, setStats] = React.useState<{ page_views: number; lastMonthViews: number } | null>(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const res = await fetch('/api/getStats');
+        const data = await res.json();
+        setStats(data);
+      } catch (err) {
+        setStats({ page_views: 0, lastMonthViews: 0 });
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStats();
+  }, []);
+
+  let percentChange = 0;
+  if (stats && stats.lastMonthViews > 0) {
+    percentChange = ((stats.page_views - stats.lastMonthViews) / stats.lastMonthViews) * 100;
+  }
+
+  return (
+    <Container maxW="container.md" py={16}>
+      <Heading as="h2" size="xl" mb="8" textAlign="center">
+        Website Statistics
+      </Heading>
+      <Stack direction={{ base: "column", md: "row" }} spacing={8} align="center" justify="center" py={12}>
+        <Stat>
+          <StatLabel>Views</StatLabel>
+          <StatNumber>
+            {loading ? 'Loading...' : stats ? stats.page_views : 'N/A'}
+          </StatNumber>
+          <Badge colorScheme={percentChange >= 0 ? "green" : "red"} variant="solid" px="2">
+            <StatHelpText as="span" color={percentChange >= 0 ? "green.500" : "red.500"} fontWeight="bold">
+              {percentChange >= 0 ? '▲' : '▼'} {Math.abs(percentChange).toFixed(1)}%
+            </StatHelpText>
+          </Badge>
+          <StatHelpText>since yesterday</StatHelpText>
+        </Stat>
+      </Stack>
+    </Container>
+  )
+}
+
 const PricingSection = () => {
   return (
     <Pricing {...pricing}>
