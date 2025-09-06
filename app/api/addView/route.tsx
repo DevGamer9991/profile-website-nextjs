@@ -1,6 +1,8 @@
 import { query } from '../../../lib/db';
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST() {
     try {
         const result = await query('UPDATE stats SET page_views = page_views + 1 WHERE stat_date = CURRENT_DATE RETURNING *');
