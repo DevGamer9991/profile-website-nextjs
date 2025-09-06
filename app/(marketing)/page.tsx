@@ -77,10 +77,10 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const Home: NextPage = () => {
 
   React.useEffect(() => {
-    const addView = async () => {
-      await fetch('/api/addView', { method: 'POST' });
+    const stats = async () => {
+      await fetch('/api/stats', { method: 'POST' });
     };
-    addView();
+    stats();
   }, []);
 
   return (
@@ -685,7 +685,7 @@ const StatsSection = () => {
   React.useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch('/api/getStats');
+        const res = await fetch('/api/stats');
         const data = await res.json();
         setStats(data);
       } catch (err) {
