@@ -89,7 +89,7 @@ const Home: NextPage = () => {
 
       <HighlightsSection />
 
-      <StatsSection />
+      {/* <StatsSection /> */}
 
       <FeaturesSection />
 
