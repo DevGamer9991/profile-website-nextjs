@@ -142,10 +142,9 @@ const HeroSection: React.FC = () => {
             }
             description={
               <h2 ref={description} style={{ fontWeight: 500, visibility: 'hidden' }}>
-                Backend developer and systems architect with a passion for building
-                high performance infrastructure. I blend strong programming skills
-                with hands on networking experience, from server administration to
-                API development, to deliver robust and scalable solutions.
+                Backend developer with experience in Node.js, Next.js, and MongoDB. 
+                Skilled in server administration, authentication, and API design, 
+                with a focus on building scalable, reliable systems.
               </h2>
             }
           >
@@ -200,14 +199,13 @@ const HeroSection: React.FC = () => {
               /> */}
               <Image
                 ref={photo}
-                src="/static/images/car.png"
+                src="/static/images/portrait.jpg"
                 width={400}
                 height={200}
                 style={{ borderRadius: '12px', visibility: 'hidden' }}
                 alt="Screenshot of a HeroSection in Saas UI Pro"
                 quality="75"
                 priority
-
               />
             </Box>
           </Box>
@@ -223,30 +221,30 @@ const HeroSection: React.FC = () => {
         pt="20"
         features={[
           {
-            title: 'Car Enthusiast',
-            icon: FiTruck,
-            description: 'Passionate about cars, on or off the track',
+            title: 'Backend Development',
+            icon: FiBox,
+            description: 'Building robust backend systems with Node.js, APIs, and database integration.',
             iconPosition: 'left',
             delay: 0.6,
           },
           {
-            title: 'Server Hosting',
+            title: 'Server Administration',
             icon: FiServer,
-            description: 'Helps Run and maintain a server for Assetto Corsa with over 30k active users.',
+            description: 'Experienced with Ubuntu Linux, Docker, Proxmox, and game server hosting at scale.',
             iconPosition: 'left',
             delay: 0.8,
           },
           {
-            title: 'Photography',
+            title: 'Multimedia Production',
             icon: FiCamera,
-            description: 'Enjoys capturing cars, landscapes, and cityscapes with creative angles.',
+            description: 'Skilled in video editing, photography, and creating engaging media presentations.',
             iconPosition: 'left',
             delay: 1,
           },
           {
-            title: 'CTF Challenges',
+            title: 'Cybersecurity & Networking',
             icon: FiLock,
-            description: 'Regularly participates in cybersecurity Capture the Flag competitions.',
+            description: 'Hands-on with networking configuration and participates in Capture the Flag challenges.',
             iconPosition: 'left',
             delay: 1.1,
           },
@@ -267,73 +265,50 @@ const HighlightsSection = () => {
 
   return (
     <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Technical Expertise" className="highlight-item" visibility="hidden">
+      <HighlightsItem colSpan={[1, null, 2]} title="Technical Expertise">
         <VStack alignItems="flex-start" spacing="8">
           <Text color="muted" fontSize="xl">
-            Over a decade of programming experience across multiple languages,
-            combined with deep knowledge in backend systems, API design, and
-            networking infrastructure. I'm comfortable working across the stack
-            to connect systems, optimize performance, and ensure reliability.
+            Strong foundation in backend development with Node.js and Next.js, database management with MongoDB 
+            and Supabase, and authentication using Clerk. I combine programming with server administration and 
+            automation to deliver efficient, scalable systems.
           </Text>
         </VStack>
       </HighlightsItem>
 
-      <HighlightsItem title="Real World Server Experience" className="highlight-item" visibility="hidden">
+      <HighlightsItem title="Server & Infrastructure Management">
         <Text color="muted" fontSize="lg">
-          Experience with Proxmox clusters and Docker deployments has enabled me to orchestrate scalable, resilient server environments. I leverage virtualization and containerization to streamline updates, isolate workloads, and maximize resource efficiency—whether hosting game servers or deploying backend services.
+          Experienced in configuring and maintaining Linux servers, Dockerized environments, and Proxmox clusters. 
+          Skilled at managing networking setups, game servers, and CI/CD pipelines for reliable deployments.
         </Text>
       </HighlightsItem>
 
-      {/* <HighlightsHobbyItem
-        name="Colleague Feedback"
-        description="From a recent project lead"
-        avatar="/static/images/avatar.jpg"
-        gradient={['blue.300', 'purple.500']}
-      >
-        “Parker’s ability to connect backend code with network architecture
-        saved us weeks in development. His solutions are fast, secure, and
-        adaptable to change.”
-      </HighlightsHobbyItem> */}
-
-      <HighlightsItem
-        title="Hands on Networking"
-        style={{
-          background: 'radial-gradient(circle at 10% 10%, #0000ff3d 0%, #80008042 80%)',
-        }}
-        className="highlight-item" visibility="hidden"
-      >
+      <HighlightsItem title="API Development & Integration">
         <Text color="muted" fontSize="lg">
-          With a background in designing and programming API backends, I build systems that are robust, scalable, and easy to maintain. My experience covers architecting endpoints, optimizing data flow, and ensuring secure, reliable communication between services for seamless integration.
+          Designed and implemented RESTful APIs, authentication systems, and backend routes to connect 
+          applications with databases and third-party services securely and efficiently.
         </Text>
       </HighlightsItem>
 
-      <HighlightsItem colSpan={[1, null, 2]} title="Always Building, Always Learning" className="highlight-item" visibility="hidden">
+      <HighlightsItem colSpan={[1, null, 2]} title="Always Building, Always Learning">
         <Text color="muted" fontSize="lg">
-          Whether experimenting with new APIs, refining automation pipelines,
-          or studying the latest in networking protocols, I stay on top of
-          emerging tech so my solutions are ready for tomorrow’s challenges.
+          From exploring new frameworks to working on automation and cybersecurity challenges, I’m always 
+          expanding my skills. My work blends software, systems, and multimedia to create solutions 
+          that are practical, secure, and future-ready.
         </Text>
         <Wrap mt="8">
           {[
-            'Backend Development',
-            'API Design',
-            'Docker',
-            'Network Configuration',
+            'Node.js',
+            'Next.js',
+            'MongoDB / Supabase',
+            'Clerk Authentication',
             'Linux Administration',
+            'Docker & Proxmox',
+            'Networking & Security',
             'CI/CD Pipelines',
-            'Database Management',
-            'Cloud Infrastructure',
-            'Performance Tuning',
-            'Security Hardening',
-            'Proxmox Clustering'
+            'Discord Bot Development',
+            'Multimedia Production',
           ].map((value) => (
-            <Tag
-              key={value}
-              variant="subtle"
-              colorScheme="purple"
-              rounded="full"
-              px="3"
-            >
+            <Tag key={value} variant="subtle" colorScheme="purple" rounded="full" px="3">
               {value}
             </Tag>
           ))}
@@ -348,21 +323,15 @@ const FeaturesSection = () => {
     <Features
       id="features"
       title={
-        <Heading
-          lineHeight="short"
-          fontSize={['2xl', null, '4xl']}
-          textAlign="left"
-          as="p"
-        >
-          Turning complex systems into seamless solutions.
+        <Heading lineHeight="short" fontSize={['2xl', null, '4xl']} textAlign="left" as="p">
+          Turning code, servers, and systems into seamless solutions.
         </Heading>
       }
       description={
         <>
-          From designing APIs to managing network architecture, I build
-          backends that perform under pressure. Every project gets a balance
-          of scalability, security, and maintainability, with a focus on
-          the people who use it.
+          From backend APIs to server administration, I build and maintain systems that balance scalability, 
+          security, and user experience. Every project is approached with performance, reliability, 
+          and long-term maintainability in mind.
         </>
       }
       align="left"
@@ -374,106 +343,39 @@ const FeaturesSection = () => {
       delay={0}
       features={[
         {
-          title: 'Scalable Backend Development',
+          title: 'Backend Development',
           icon: FiBox,
-          description: (
-            <>
-              <br />Designing and building backend architectures that handle growth
-              effortlessly from APIs, to full application logic with clean,
-              maintainable code.
-            </>
-          ),
+          description: <><br/>Building APIs, authentication systems, and backend logic using Node.js and Next.js.</>,
           variant: 'inline',
         },
         {
-          title: 'Network Aware Systems',
+          title: 'Database & Authentication',
           icon: FiLock,
-          description: (
-            <>
-              <br />Integrating deep networking knowledge into backend design,
-              ensuring low latency, high reliability, and secure data flow across
-              services.
-            </>
-          ),
+          description: <><br/>Managing MongoDB and Supabase databases with Clerk-powered user authentication.</>,
           variant: 'inline',
         },
         {
-          title: 'Performance Optimization',
-          icon: FiSearch,
-          description: (
-            <>
-              <br />Tuning applications, databases, and network configurations to
-              run faster and more efficiently, even under heavy workloads.
-            </>
-          ),
+          title: 'Server Administration',
+          icon: FiServer,
+          description: <><br/>Deploying and maintaining Ubuntu Linux servers, Docker containers, and Proxmox clusters.</>,
           variant: 'inline',
         },
         {
-          title: 'Infrastructure Engineering',
+          title: 'Automation & CI/CD',
           icon: FiUserPlus,
-          description: (
-            <>
-              <br />Deploying and maintaining Linux servers, configuring cloud
-              resources, and automating workflows for maximum uptime and minimal
-              manual intervention.
-            </>
-          ),
+          description: <><br/>Streamlining development workflows with GitHub, pipelines, and custom automation scripts.</>,
           variant: 'inline',
         },
         {
-          title: 'Security First Mindset',
+          title: 'Multimedia Production',
+          icon: FiCamera,
+          description: <><br/>Experienced in video editing, photography, and supporting live multimedia presentations.</>,
+          variant: 'inline',
+        },
+        {
+          title: 'Cybersecurity & Networking',
           icon: FiFlag,
-          description: (
-            <>
-              <br />Applying strong security practices to backend code, server
-              configurations, and network setups to safeguard systems and users.
-            </>
-          ),
-          variant: 'inline',
-        },
-        {
-          title: 'Cross Stack Integration',
-          icon: FiTrendingUp,
-          description: (
-            <>
-              <br />Bridging diverse tools and technologies, from databases, to
-              frontend clients, into cohesive, well documented, and maintainable
-              systems.
-            </>
-          ),
-          variant: 'inline',
-        },
-        {
-          title: 'Creative Problem Solving',
-          icon: FiToggleLeft,
-          description: (
-            <>
-              <br />Breaking down complex technical challenges into actionable
-              solutions that balance performance, scalability, and ease of use.
-            </>
-          ),
-          variant: 'inline',
-        },
-        {
-          title: 'Custom Built Solutions',
-          icon: FiTerminal,
-          description: (
-            <>
-              <br />Crafting tailored backend tools, scripts, and integrations that
-              address unique project requirements and speed up delivery.
-            </>
-          ),
-          variant: 'inline',
-        },
-        {
-          title: 'Continuous Growth',
-          icon: FiCode,
-          description: (
-            <>
-              <br />Always exploring new technologies, frameworks, and best
-              practices to improve my work and keep pace with an evolving industry.
-            </>
-          ),
+          description: <>Participates in CTF challenges and applies secure networking practices to projects.</>,
           variant: 'inline',
         },
       ]}
